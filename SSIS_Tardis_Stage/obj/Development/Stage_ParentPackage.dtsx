@@ -1,0 +1,653 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/15/2024 7:10:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-4FMTI4A0"
+  DTS:CreatorName="LAPTOP-4FMTI4A0\PREMSAIROBO"
+  DTS:DTSID="{6B8F177A-71CF-475C-AF62-C3C23BCEB349}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_ParentPackage"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{BC542531-B383-4D6A-AC3C-735D5226CFC3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="Dest_Stage_Tardis"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{AA35EAB2-A266-4833-ADF0-3AA1B2AD44FC}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">3,7,OnError,12,OnTaskFailed,9,OnWarning</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Master tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{AFB9A140-9DAA-4F2F-A64C-BD725D350D5B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Master tables">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Master tables\stage_loadcurrency"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{90991b3d-b289-4f23-9818-33c6971a9040}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadcurrency"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadCurrency.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Master tables\Stage_LoadPolicy"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{A5AB50E1-3E21-467F-9A23-D5EA31254C9D}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Stage_LoadPolicy"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadPolicy.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Master tables\stage_loadPolicycoverage"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{54879618-d25f-4063-bcda-955640beca3a}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadPolicycoverage"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadPolicyCoverage.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Master tables\stage_loadpolicysection"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{dae263c7-2917-4a62-aab6-c2a2aed5bf74}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadpolicysection"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadPolicySection.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Master tables\stage_loadrevenuetype"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{47504bb0-4a31-4268-b8b2-ae66b56379a3}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadrevenuetype"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadRevenueType.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Master tables\stage_loadtranscationtype"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{bab2cbbe-8bad-4040-a274-82b92a9d824d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadtranscationtype"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadTranscationType.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Master tables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{57EE5AAE-A217-4399-9602-C946D0FA95A9}"
+          DTS:From="Package\Master tables\Stage_LoadPolicy"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Master tables\stage_loadpolicysection" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Master tables.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{CEAD7C7C-14B3-4604-90E6-08526A1E3F34}"
+          DTS:From="Package\Master tables\stage_loadpolicysection"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Master tables\stage_loadPolicycoverage" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Master tables.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{FDB27AFF-DFF2-4A8C-AEA2-BBECDB7AC519}"
+          DTS:From="Package\Master tables\stage_loadPolicycoverage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Master tables\stage_loadrevenuetype" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Master tables.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{3535A1EC-CCCA-40DF-9467-BF3EC188709A}"
+          DTS:From="Package\Master tables\stage_loadrevenuetype"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Master tables\stage_loadtranscationtype" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Master tables.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{F0540C4D-32EC-42B2-B12C-E5E1CD0FA92E}"
+          DTS:From="Package\Master tables\stage_loadtranscationtype"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Master tables\stage_loadcurrency" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\transcation tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{60373268-ED6D-4925-B753-22417F9453BC}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="transcation tables">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\transcation tables\stage_loadeduction"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{35c1e36e-8404-4179-a860-7dc5a7b4fd8b}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadeduction"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadPolicyDeduction.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\transcation tables\stage_loadpolicylimit"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{8A4360B7-72E7-4AE9-980F-6F1BF70100CE}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadpolicylimit"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadPolicyLimit.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\transcation tables\stage_loadpolicypremium"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{410b2a33-7144-435a-a5ff-1338b929c48d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="stage_loadpolicypremium"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Stage_LoadPolicyPremium.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\transcation tables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{EB7B610B-674C-4072-B060-CFEEA3E8C015}"
+          DTS:From="Package\transcation tables\stage_loadpolicylimit"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\transcation tables\stage_loadpolicypremium" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\transcation tables.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{41928E91-2D4F-4AA7-97C3-637490C48C12}"
+          DTS:From="Package\transcation tables\stage_loadpolicypremium"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\transcation tables\stage_loadeduction" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D8368D66-5E6C-4993-A971-931A0189D746}"
+      DTS:From="Package\Master tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\transcation tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Master tables\stage_loadcurrency"
+          TopLeft="40.7571431399607,429.994117519703" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Master tables\Stage_LoadPolicy"
+          TopLeft="45.5000000851495,30.7352940955273" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Master tables\stage_loadPolicycoverage"
+          TopLeft="36.4714288451234,184.841176290949" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\Master tables\stage_loadpolicysection"
+          TopLeft="40.2571431506046,109.094117348778" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\Master tables\stage_loadrevenuetype"
+          TopLeft="37.1857145609296,265.794117485518" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Master tables\stage_loadtranscationtype"
+          TopLeft="36.4714288451233,346.747058680086" />
+        <EdgeLayout
+          Id="Package\Master tables.PrecedenceConstraints[Constraint]"
+          TopLeft="125.500000085149,72.3352940955273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.55714306545514,36.7588232532506"
+              Start="0,0"
+              End="9.55714306545514,29.2588232532506">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3794116266253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3794116266253"
+                    Point2="0,18.3794116266253"
+                    Point3="4,18.3794116266253" />
+                  <mssgle:LineSegment
+                    End="5.55714306545514,18.3794116266253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.55714306545514,18.3794116266253"
+                    Point2="9.55714306545514,18.3794116266253"
+                    Point3="9.55714306545514,22.3794116266253" />
+                  <mssgle:LineSegment
+                    End="9.55714306545514,29.2588232532506" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Master tables.PrecedenceConstraints[Constraint 1]"
+          TopLeft="137.564285997864,150.694117348778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.1470589421714"
+              Start="0,0"
+              End="0,26.6470589421714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6470589421714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Master tables.PrecedenceConstraints[Constraint 2]"
+          TopLeft="140.228571703026,226.441176290949">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.3529411945687"
+              Start="0,0"
+              End="0,31.8529411945687">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8529411945687" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Master tables.PrecedenceConstraints[Constraint 3]"
+          TopLeft="138.828571703026,307.394117485518">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.3529411945683"
+              Start="0,0"
+              End="0,31.8529411945683">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8529411945683" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Master tables.PrecedenceConstraints[Constraint 4]"
+          TopLeft="134.614285992542,388.347058680086">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6470588396165"
+              Start="0,0"
+              End="0,34.1470588396165">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1470588396165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="267.2,526.4"
+          Size="267.2,569.6"
+          Id="Package\Master tables"
+          TopLeft="97.6428573390051,188.264705722153" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\transcation tables\stage_loadeduction"
+          TopLeft="51.4948060999333,179.43636339914" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\transcation tables\stage_loadpolicylimit"
+          TopLeft="17.7285722618201,8.42365943309164" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\transcation tables\stage_loadpolicypremium"
+          TopLeft="29.4363645062433,93.8256681979594" />
+        <EdgeLayout
+          Id="Package\transcation tables.PrecedenceConstraints[Constraint]"
+          TopLeft="105.72857226182,50.0236594330916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5077922444231,43.8020087648677"
+              Start="0,0"
+              End="22.5077922444231,36.3020087648677">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9010043824339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.9010043824339"
+                    Point2="0,21.9010043824339"
+                    Point3="4,21.9010043824339" />
+                  <mssgle:LineSegment
+                    End="18.5077922444231,21.9010043824339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5077922444231,21.9010043824339"
+                    Point2="22.5077922444231,21.9010043824339"
+                    Point3="22.5077922444231,25.9010043824339" />
+                  <mssgle:LineSegment
+                    End="22.5077922444231,36.3020087648677" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\transcation tables.PrecedenceConstraints[Constraint 1]"
+          TopLeft="128.236364506243,135.425668197959">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.05844159369008,44.010695201181"
+              Start="0,0"
+              End="8.05844159369008,36.510695201181">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0053476005905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0053476005905"
+                    Point2="0,22.0053476005905"
+                    Point3="4,22.0053476005905" />
+                  <mssgle:LineSegment
+                    End="4.05844159369008,22.0053476005905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.05844159369008,22.0053476005905"
+                    Point2="8.05844159369008,22.0053476005905"
+                    Point3="8.05844159369008,26.0053476005905" />
+                  <mssgle:LineSegment
+                    End="8.05844159369008,36.510695201181" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="400,303.2"
+          Size="400,346.4"
+          Id="Package\transcation tables"
+          TopLeft="455.242857828615,314.435424382291" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="364.842857339005,473.064705722153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.4000004896096,14.5707186601381"
+              Start="0,0"
+              End="82.9000004896096,14.5707186601381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.2000002448048,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.2000002448048,0"
+                    Point2="45.2000002448048,0"
+                    Point3="45.2000002448048,4" />
+                  <mssgle:LineSegment
+                    End="45.2000002448048,10.5707186601381" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.2000002448048,10.5707186601381"
+                    Point2="45.2000002448048,14.5707186601381"
+                    Point3="49.2000002448048,14.5707186601381" />
+                  <mssgle:LineSegment
+                    End="82.9000004896096,14.5707186601381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

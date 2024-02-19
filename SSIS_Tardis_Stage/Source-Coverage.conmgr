@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Source-Coverage"
+  DTS:DTSID="{61BD198A-C6F2-48C3-AD48-C3F3BB51F960}"
+  DTS:CreationName="EXCEL">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="0"
+      DTS:ConnectRetryInterval="0"
+      DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=D:\SourceData-20231119T115957Z-001\SourceData\Project_Tardis\Project files\OLTP\COVERAGE,DEDUCTION,PREMIUM,LIMIT.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
